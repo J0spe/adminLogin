@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Classes{% endblock %}
+
+
+{% block content %}
+
+<body style="background-color:white"></body>
+
+<h1 style="color:maroon">
+    Update Classes:
+</h1>
+
+
+
+<form method="POST" action="{% url 'updateClasses' %}">
+    {% csrf_token %}
+    <p style="color:maroon">Course: <input type="text" name="Course" placeholder="Enter Course" required=""></p>
+
+    <p style="color:maroon">Major: <input type="text" name="Major" placeholder="Enter Major" required=""></p>
+    
+    <p style="color:maroon">Credit Hours: <input type="text" name="Credit_Hours" placeholder="Enter Required Credit Hours" required=""></p>
+    
+    <p style="color:maroon">Semester Taught: <input type="text" name="Semester_Taught" placeholder="Enter Semester Taught" required=""></p>
+    
+    <p style="color:maroon">Required Passing Grade: <input type="text" name="Required_Passing_Grade" placeholder="Enter Required Passing Grade" required=""></p>
+    
+    <br>
+        <input type="submit" name="submit">
+    </br>
+</form>
+
+
+
+{% endblock %}

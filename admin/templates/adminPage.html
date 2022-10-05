@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Admin Only Page{% endblock %}
+
+{% block content %}
+<h1 style="color:maroon">
+    Add or Update Courses!
+</h1>
+
+<style>
+.addClassButton {
+    border: black;
+    color: orangered;
+    padding: 15px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.updateClassButton {
+    border: black;
+    color: orangered;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.addClassButton {background-color: maroon;}
+.updateClassButton {background-color: maroon;}
+
+</style>
+
+<button onClick="myOnClickAddClass()" class="button addClassButton">Add Course</button>
+<button onClick="myOnClickUpdateClass()" class="button updateClassButton">Update Course</button>
+
+<script>
+    function myOnClickAddClass() {
+        document.location.href="/insertClasses";
+    }
+    function myOnClickUpdateClass() {
+        document.location.href="/updateClasses";
+    }
+</script>
+
+{% endblock %}

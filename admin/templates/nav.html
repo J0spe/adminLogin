@@ -1,0 +1,35 @@
+<nav>
+    {% url 'home' as home_url %}
+    <span>{% if request.path == home_url %}Home{% else %}<a href="{{ home_url }}">Home</a>{% endif %}</span>
+
+
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+
+            {% url 'adminPage' as adminPage_url %} 
+            <span>{% if request.path == adminPage_url %}Admin{% else %}<a href="{{ adminPage_url }}">Admin</a>{% endif %}</span>
+        
+        {% else %}
+            {% url 'studentPage' as sutentPage_url %}
+            <span>{% if request.path == sutentPage_url %}Student Page{% else %}<a href="{{ sutentPage_url }}">Student Page</a>{% endif %}</span>
+
+        
+        {% endif %}
+    {% endif %}
+
+
+
+    <span style="float:right">
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <span>hi admin</span>
+            {% else %}
+                <span>hi student</span>
+            {% endif %}
+            <span><a href="{% url 'logout' %}">Logout</a></span>
+        {% else %}
+            <span><a href="{% url 'login' %}">Login</a></span>
+        {% endif %}
+    </span>
+
+</nav>
